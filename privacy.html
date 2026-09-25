@@ -38,27 +38,51 @@
         </section>
         <section>
           <h2>3. Datenverarbeitung in der App</h2>
-          <p><strong>Lokale Speicherung:</strong> Bohnen, Rezepte, Dial-in-Werte und Shot-Historie werden ausschließlich lokal auf deinem Gerät gespeichert und nicht an einen Server übertragen.</p>
-          <p><strong>Kamera und Fotobibliothek:</strong> Mit deiner Erlaubnis kannst du Fotos von Bohnentüten aufnehmen oder auswählen. Diese werden lokal auf deinem Gerät verwendet.</p>
-          <p><strong>KI-Bildgenerierung:</strong> Wenn du die Funktion zur KI-gestützten Bilderzeugung nutzt, wird das von dir ausgewählte Foto zur Verarbeitung an die Google Gemini API übermittelt. Es gelten die Datenschutzbestimmungen von Google.</p>
-          <p><strong>In-App-Käufe:</strong> Abos und Käufe werden über den Apple App Store bzw. Google Play abgewickelt. Zur Verwaltung des Abo-Status wird RevenueCat Inc. eingesetzt, das dazu Kauf- und Gerätekennungen verarbeitet.</p>
+          <p><strong>Lokale Speicherung:</strong> Bohnen, Rezepte, Dial-in-Werte, Shot-Historie, Mühlen und Maschinen werden ausschließlich lokal auf deinem Gerät gespeichert und nicht an einen Server übertragen. Wenn du die App löschst, werden diese Daten gelöscht. Das Widget auf dem Home-Bildschirm liest deine aktive Bohne aus demselben lokalen Speicher.</p>
+          <p><strong>KI-Bohnen-Cover:</strong> Wenn du ein Cover für eine Bohne erzeugst (Teil von tastewell pro), werden die Angaben zur Bohne – Name, Rösterei, Herkunft, Röstgrad, Mischung und Geschmacksnoten – als Text an unseren Server bei Expo (EAS Hosting) und von dort an die Google Gemini API übermittelt, die das Bild erzeugt. Es werden keine Fotos übertragen. Unser Server kann die Anfrage zur Fehlersuche kurzzeitig in seinen Logs speichern. Für die Verarbeitung durch Google gelten die Bedingungen der Gemini API.</p>
+          <p><strong>In-App-Käufe:</strong> Abos und Käufe werden über den Apple App Store bzw. Google Play abgewickelt; deine Zahlungsdaten sehen wir nie. Zur Verwaltung des Abo-Status wird RevenueCat Inc. eingesetzt, das dazu deine Käufe und eine zufällige App-Nutzer-ID verarbeitet. RevenueCat meldet Kauf-Ereignisse wie ein neues Abo, eine Verlängerung oder eine Kündigung samt Preis und Währung auch an PostHog (siehe Punkt 4), unter derselben zufälligen Installations-ID.</p>
         </section>
         <section>
-          <h2>4. Externe Dienste und Empfänger</h2>
+          <h2>4. Nutzungsanalyse in der App (PostHog)</h2>
+          <p>Um zu verstehen, wie tastewell genutzt wird, und die App zu verbessern, sendet die App Nutzungsereignisse an PostHog (PostHog Inc.), gehostet in der EU (Frankfurt, Deutschland). Dazu gehören:</p>
           <ul>
-            <li>GitHub Pages (GitHub Inc.) – Website-Hosting</li>
-            <li>Google LLC – Gemini API zur KI-Bildgenerierung</li>
-            <li>RevenueCat Inc. – Verwaltung von Abos und In-App-Käufen</li>
-            <li>Apple Inc. / Google LLC – Zahlungsabwicklung über App Store bzw. Play Store</li>
+            <li>welche Bildschirme du öffnest und welche Schritte du abschließt, z. B. im Onboarding und beim Dial-in</li>
+            <li>Angaben zu deinen Shots und Rezepten: Dosis, Ausbeute, Shot-Zeit, Temperatur, Mahlgrad-Position, Geschmacksbewertung und der Vorschlag der App. Bohnennamen, Röstereien, Herkunft, Geschmacksnoten und deine eigenen Notizen werden nie gesendet</li>
+            <li>deine Ausrüstung: das Mühlenmodell bzw. – bei einer Mühle, die nicht in unserer Liste ist – der von dir eingegebene Modellname, sowie die Art der Espressomaschine</li>
+            <li>Kauf- und Abo-Ereignisse</li>
+            <li>Fehlerberichte, wenn in der App etwas schiefgeht</li>
+            <li>Geräte- und App-Angaben: Gerätemodell, Betriebssystem, App-Version und Sprache</li>
+            <li>eine zufällige Installations-ID, die nicht mit deinem Namen, deiner E-Mail-Adresse oder deiner Apple-ID verknüpft ist</li>
+            <li>ein ungefährer Standort (Land und Stadt), der aus deiner IP-Adresse abgeleitet wird. Die IP-Adresse selbst wird nicht gespeichert</li>
+          </ul>
+          <p>Wir nutzen diese Daten ausschließlich, um zu verstehen, welche Funktionen beim Einstellen helfen, wo die App im Weg steht, und um Fehler zu beheben. Sie werden nicht für Werbung genutzt und nicht an Werbetreibende oder Datenhändler weitergegeben. Rechtsgrundlage ist unser berechtigtes Interesse an der Verbesserung und Fehlerfreiheit der App (Art. 6 Abs. 1 lit. f DSGVO). Du kannst dieser Verarbeitung jederzeit per E-Mail an die oben genannte Adresse widersprechen.</p>
+        </section>
+        <section>
+          <h2>5. Externe Dienste und Empfänger</h2>
+          <ul>
+            <li>GitHub Pages (GitHub Inc., USA) – Website-Hosting</li>
+            <li>PostHog Inc. – Nutzungsanalyse der App, gehostet in der EU</li>
+            <li>RevenueCat Inc., USA – Verwaltung von Abos und In-App-Käufen</li>
+            <li>Google LLC, USA – Gemini API für KI-Bohnen-Cover</li>
+            <li>Expo (650 Industries, Inc.), USA – Server für die Cover-Erzeugung</li>
+            <li>Apple Inc. / Google LLC – App-Vertrieb und Zahlungsabwicklung über App Store bzw. Play Store</li>
           </ul>
         </section>
         <section>
-          <h2>5. Deine Rechte</h2>
-          <p>Du hast das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung deiner Daten sowie ein Widerspruchsrecht und das Recht auf Datenübertragbarkeit. Zudem steht dir ein Beschwerderecht bei der zuständigen Datenschutzbehörde zu (in Österreich: Österreichische Datenschutzbehörde). Wende dich für Anfragen an die oben genannte Kontakt-E-Mail-Adresse.</p>
+          <h2>6. Übermittlung in Drittländer</h2>
+          <p>Einige Dienstleister haben ihren Sitz in den USA. Die Übermittlung dorthin erfolgt auf Grundlage eines Angemessenheitsbeschlusses der EU-Kommission (EU-US Data Privacy Framework) oder der Standardvertragsklauseln der EU-Kommission.</p>
         </section>
         <section>
-          <h2>6. Stand und Änderungen</h2>
-          <p>Stand: August 2026. Diese Datenschutzerklärung kann bei Weiterentwicklung der App oder Website angepasst werden.</p>
+          <h2>7. Speicherdauer</h2>
+          <p>Daten auf deinem Gerät bleiben gespeichert, bis du sie oder die App löschst. Nutzungsereignisse werden nur so lange aufbewahrt, wie sie für die genannten Zwecke nötig sind, und danach gelöscht. Kaufdaten werden so lange aufbewahrt, wie es dein Abo erfordert und gesetzliche Pflichten es verlangen.</p>
+        </section>
+        <section>
+          <h2>8. Deine Rechte</h2>
+          <p>Du hast das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung deiner Daten sowie ein Widerspruchsrecht und das Recht auf Datenübertragbarkeit. Zudem steht dir ein Beschwerderecht bei der zuständigen Datenschutzbehörde zu (in Österreich: Österreichische Datenschutzbehörde). Wende dich für Anfragen an die oben genannte Kontakt-E-Mail-Adresse. Da tastewell keine Benutzerkonten hat, nenne uns bitte ungefähr, wann und auf welchem Gerät du die App genutzt hast, damit wir die richtigen Daten finden.</p>
+        </section>
+        <section>
+          <h2>9. Stand und Änderungen</h2>
+          <p>Stand: September 2026. Diese Datenschutzerklärung kann bei Weiterentwicklung der App oder Website angepasst werden.</p>
         </section>
       </div>
     </main>
