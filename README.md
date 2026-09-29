@@ -63,6 +63,19 @@ Dann `http://localhost:4173` öffnen.
 
 ## Hosting
 
+### Aktuell: GitHub Pages über tastewell-website
+
+Die Seite läuft unter https://h-markus.github.io/tastewell-website/. Das Repo
+`h-markus/tastewell-website` ist nur das Ziel der Veröffentlichung: Jeder Push
+auf `main`, der `website/` ändert, kopiert den Ordner per GitHub Action
+(`.github/workflows/deploy-website.yml`) dorthin, und GitHub Pages
+veröffentlicht ihn. Änderungen deshalb nur hier machen, nie direkt im
+Website-Repo, sonst überschreibt der nächste Abgleich sie.
+
+Die Action braucht das Secret `WEBSITE_DEPLOY_KEY` (privater Teil eines
+Deploy Keys mit Schreibrecht auf `tastewell-website`). Manuell auslösen:
+`gh workflow run deploy-website.yml`.
+
 ### Netlify / Cloudflare Pages
 
 - Repository verbinden

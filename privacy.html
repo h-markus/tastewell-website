@@ -40,11 +40,11 @@
           <h2>3. Datenverarbeitung in der App</h2>
           <p><strong>Lokale Speicherung:</strong> Bohnen, Rezepte, Dial-in-Werte, Shot-Historie, Mühlen und Maschinen werden ausschließlich lokal auf deinem Gerät gespeichert und nicht an einen Server übertragen. Wenn du die App löschst, werden diese Daten gelöscht. Das Widget auf dem Home-Bildschirm liest deine aktive Bohne aus demselben lokalen Speicher.</p>
           <p><strong>KI-Bohnen-Cover:</strong> Wenn du ein Cover für eine Bohne erzeugst (Teil von tastewell pro), werden die Angaben zur Bohne – Name, Rösterei, Herkunft, Röstgrad, Mischung und Geschmacksnoten – als Text an unseren Server bei Expo (EAS Hosting) und von dort an die Google Gemini API übermittelt, die das Bild erzeugt. Es werden keine Fotos übertragen. Unser Server kann die Anfrage zur Fehlersuche kurzzeitig in seinen Logs speichern. Für die Verarbeitung durch Google gelten die Bedingungen der Gemini API.</p>
-          <p><strong>In-App-Käufe:</strong> Abos und Käufe werden über den Apple App Store bzw. Google Play abgewickelt; deine Zahlungsdaten sehen wir nie. Zur Verwaltung des Abo-Status wird RevenueCat Inc. eingesetzt, das dazu deine Käufe und eine zufällige App-Nutzer-ID verarbeitet. RevenueCat meldet Kauf-Ereignisse wie ein neues Abo, eine Verlängerung oder eine Kündigung samt Preis und Währung auch an PostHog (siehe Punkt 4), unter derselben zufälligen Installations-ID.</p>
+          <p><strong>In-App-Käufe:</strong> Abos und Käufe werden über den Apple App Store bzw. Google Play abgewickelt; deine Zahlungsdaten sehen wir nie. Zur Verwaltung des Abo-Status wird RevenueCat Inc. eingesetzt, das dazu deine Käufe und eine zufällige App-Nutzer-ID verarbeitet. RevenueCat meldet Kauf-Ereignisse wie ein neues Abo, eine Verlängerung oder eine Kündigung samt Preis und Währung auch an PostHog (siehe Punkt 4). Wenn du Nutzungsdaten teilst, geschieht das unter derselben zufälligen Installations-ID wie bei deinen Nutzungsereignissen. Wenn nicht, meldet RevenueCat diese Ereignisse trotzdem, aber unter seiner eigenen zufälligen App-Nutzer-ID statt der Installations-ID. Rechtsgrundlage ist unser berechtigtes Interesse daran, die Entwicklung der Abos zu verstehen (Art. 6 Abs. 1 lit. f DSGVO). Du kannst dem jederzeit per E-Mail an die oben genannte Adresse widersprechen.</p>
         </section>
         <section>
           <h2>4. Nutzungsanalyse in der App (PostHog)</h2>
-          <p>Um zu verstehen, wie tastewell genutzt wird, und die App zu verbessern, sendet die App Nutzungsereignisse an PostHog (PostHog Inc.), gehostet in der EU (Frankfurt, Deutschland). Dazu gehören:</p>
+          <p>Um zu verstehen, wie tastewell genutzt wird, und die App zu verbessern, kann die App Nutzungsereignisse an PostHog (PostHog Inc.) senden, gehostet in der EU (Frankfurt, Deutschland). Ob sie das tut, entscheidest du (siehe unten). Zu diesen Ereignissen gehören:</p>
           <ul>
             <li>welche Bildschirme du öffnest und welche Schritte du abschließt, z. B. im Onboarding und beim Dial-in</li>
             <li>Angaben zu deinen Shots und Rezepten: Dosis, Ausbeute, Shot-Zeit, Temperatur, Mahlgrad-Position, Geschmacksbewertung und der Vorschlag der App. Bohnennamen, Röstereien, Herkunft, Geschmacksnoten und deine eigenen Notizen werden nie gesendet</li>
@@ -55,7 +55,10 @@
             <li>eine zufällige Installations-ID, die nicht mit deinem Namen, deiner E-Mail-Adresse oder deiner Apple-ID verknüpft ist</li>
             <li>ein ungefährer Standort (Land und Stadt), der aus deiner IP-Adresse abgeleitet wird. Die IP-Adresse selbst wird nicht gespeichert</li>
           </ul>
-          <p>Wir nutzen diese Daten ausschließlich, um zu verstehen, welche Funktionen beim Einstellen helfen, wo die App im Weg steht, und um Fehler zu beheben. Sie werden nicht für Werbung genutzt und nicht an Werbetreibende oder Datenhändler weitergegeben. Rechtsgrundlage ist unser berechtigtes Interesse an der Verbesserung und Fehlerfreiheit der App (Art. 6 Abs. 1 lit. f DSGVO). Du kannst dieser Verarbeitung jederzeit per E-Mail an die oben genannte Adresse widersprechen.</p>
+          <p>Wir nutzen diese Daten ausschließlich, um zu verstehen, welche Funktionen beim Einstellen helfen, wo die App im Weg steht, und um Fehler zu beheben. Sie werden nicht für Werbung genutzt und nicht an Werbetreibende oder Datenhändler weitergegeben.</p>
+          <p><strong>Deine Wahl:</strong> Wenn du die App ab Version 1.3.0 einrichtest, fragt sie dich bei der Einrichtung, ob du Nutzungsdaten teilen möchtest, und sendet nichts, bevor du zustimmst. Rechtsgrundlage ist deine Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Du kannst sie jederzeit in den Einstellungen unter „Nutzungsdaten teilen“ widerrufen. Der Widerruf gilt für die Zukunft; die Verarbeitung bis dahin bleibt davon unberührt.</p>
+          <p>Hast du die App mit einer früheren Version eingerichtet, wurdest du nicht gefragt, und das Teilen bleibt eingeschaltet, bis du es ausschaltest. Rechtsgrundlage ist dann unser berechtigtes Interesse an der Verbesserung und Fehlerfreiheit der App (Art. 6 Abs. 1 lit. f DSGVO). Du kannst jederzeit widersprechen, indem du „Nutzungsdaten teilen“ in den Einstellungen ausschaltest oder uns eine E-Mail an die oben genannte Adresse schreibst.</p>
+          <p>Sobald das Teilen ausgeschaltet ist, sendet die App keine Nutzungsereignisse mehr an PostHog. Zu den Kauf-Ereignissen, die RevenueCat meldet, siehe Punkt 3.</p>
         </section>
         <section>
           <h2>5. Externe Dienste und Empfänger</h2>
@@ -82,7 +85,7 @@
         </section>
         <section>
           <h2>9. Stand und Änderungen</h2>
-          <p>Stand: September 2026. Diese Datenschutzerklärung kann bei Weiterentwicklung der App oder Website angepasst werden.</p>
+          <p>Stand: 29. September 2026. Diese Datenschutzerklärung kann bei Weiterentwicklung der App oder Website angepasst werden.</p>
         </section>
       </div>
     </main>
